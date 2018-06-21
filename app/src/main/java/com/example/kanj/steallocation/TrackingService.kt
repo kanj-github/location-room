@@ -50,7 +50,11 @@ class TrackingService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         try {
             locationClient.lastLocation.addOnSuccessListener {
-                locHandler = LocCallbackHandler(it.latitude, it.longitude, it.time)
+                if (it != null) {
+                    locHandler = LocCallbackHandler(it.latitude, it.longitude, it.time)
+                } else {
+                    locHandler = LocCallbackHandler(90.00, 0.0, 0)
+                }
                 startTrackingLocation()
             }
         } catch (e: SecurityException) {
