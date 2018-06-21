@@ -12,7 +12,7 @@ import io.reactivex.Maybe;
 
 @Dao
 public interface LocDao {
-    @Query("SELECT * FROM Loc")
+    @Query("SELECT * FROM Loc ORDER BY timestamp")
     Maybe<List<Loc>> getSavedLocations();
 
     @Insert

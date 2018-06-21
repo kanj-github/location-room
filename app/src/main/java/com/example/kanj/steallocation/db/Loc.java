@@ -11,10 +11,12 @@ public class Loc {
     public Double lat;
     public Double lon;
     public int accuracy;
+    public long timestamp;
 
-    public Loc (Double lat, Double lon, int accuracy) {
+    public Loc (Double lat, Double lon, int accuracy, long timestamp) {
         this.lat = lat;
         this.lon = lon;
         this.accuracy = accuracy;
+        this.timestamp = timestamp;
     }
 }

@@ -92,7 +92,7 @@ class TrackingService : Service() {
                 val distance = floatArrayOf(0f)
                 Location.distanceBetween(lastLat, lastLon, location.latitude, location.longitude, distance)
                 if (distance[0] >= DISTANCE_THRESHOLD_IN_METRES || location.time - lastTime >= TIME_THRESHOLD_IN_MILLIS) {
-                    locs.add(Loc(location.latitude, location.longitude, location.accuracy.toInt()))
+                    locs.add(Loc(location.latitude, location.longitude, location.accuracy.toInt(), location.time))
                     lastLat = location.latitude
                     lastLon = location.longitude
                     lastTime = location.time
